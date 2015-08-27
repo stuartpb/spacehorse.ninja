@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>spacehorse.ninja</title>
+<style>
+html, body {
+  margin: 0;
+  height: 100%;
+  background-size: cover;
+}
+.abs {
+  position: absolute;
+}
+</style>
+</head>
+<body style="background-image: url('http://i.imgur.com/PZYmQsC.jpg')">
+<div id="syllabody" class="abs" style="background-image: url('http://i.imgur.com/BaulRXE.png')">
+<img id="trocheehead" class="abs" src="http://i.imgur.com/TJijbd6.png" style="top: 30px; left: 215px;">
+</div>
+<script>
+var bgs = {
+  space: {
+    url: 'http://i.imgur.com/PZYmQsC.jpg'
+  }
+};
+var bodies = {
+  horse: {
+    url: 'http://i.imgur.com/BaulRXE.png',
+    neck: {x: 250, y: 80},
+    width: 300, height: 300
+  },
+  goat: {
+    url: 'http://i.imgur.com/122nM01.png',
+    neck: {x: 250, y: 95},
+    width: 362, height:300
+  }
+};
+var heads = {
+  ninja: {
+    url: 'http://i.imgur.com/TJijbd6.png',
+    width:69, height:100
+  },
+  cowboy: {
+    url: 'http://i.imgur.com/tEX0jWp.png',
+    width:105, height:130
+  }
+};
+var bgOpts = Object.keys(bgs);
+var bodyOpts = Object.keys(bodies);
+var headOpts = Object.keys(heads);
+
+var activeBg = 'space';
+var activeBody = 'horse';
+var activeHead = 'ninja';
+
+var bodyDiv = document.getElementById('syllabody');
+var headImg = document.getElementById('trocheehead');
+
+function randomItem(array) {
+  return array[Math.floor(Math.random()*array.length)]
+}
+
+function roll() {
+  activeBg = randomItem(bgOpts);
+  activeBody = randomItem(bodyOpts);
+  activeHead = randomItem(headOpts);
+
+  document.body.style.backgroundImage = bgs[activeBg].url;
+  bodyDiv.style.backgroundImage = bodies[activeBody].url;
+  headImg.src = heads[activeHead].url;
+  headImg.style.top = bodies[activeBody].neck.y - heads[activeHead].height/2;
+  headImg.style.left = bodies[activeBody].neck.x - heads[activeHead].width/2;
+}
+document.addEventListener('mousemove',function(evt){
+  bodyDiv.style.left = evt.clientX - bodies[activeBody].width/2;
+  bodyDiv.style.top = evt.clientY - bodies[activeBody].height/2;
+});
+</script>
+</body>
+</html>
