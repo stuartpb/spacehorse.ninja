@@ -93,7 +93,7 @@ function roll() {
   activeBg = randomItem(bgOpts);
   activeBody = randomItem(bodyOpts);
   activeHead = randomItem(headOpts);
-  headline = activeBg + ' ' + activeBody + ' ' + activeHead;
+  headline.textContent = activeBg + ' ' + activeBody + ' ' + activeHead;
 
   document.body.style.backgroundImage = "url('"+bgs[activeBg].url+"')";
   bodyDiv.style.backgroundImage = "url('"+bodies[activeBody].url+"')";
