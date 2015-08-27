@@ -8,6 +8,7 @@ html, body {
   margin: 0;
   height: 100%;
   background-size: cover;
+  font-family: sans-serif;
 }
 .abs {
   position: absolute;
@@ -17,6 +18,11 @@ html, body {
  transition: transform 0.3s;
  transform-style: preserve-3d;
  position: absolute;
+}
+h1 {
+  text-transform: uppercase;
+  text-align: center;
+  color: white;
 }
 
 @keyframes dance {
@@ -35,6 +41,7 @@ html, body {
 </style>
 </head>
 <body style="background-image: url('http://i.imgur.com/PZYmQsC.jpg');">
+<h1 id="headline">space horse ninja</h1>
 <div id="syllabody" class="abs wiggle" style="background-image: url('http://i.imgur.com/BaulRXE.png'); width: 300px; height: 300px;">
 <img id="trocheehead" class="abs" src="http://i.imgur.com/TJijbd6.png" style="top: 30px; left: 215px;">
 </div>
@@ -76,6 +83,7 @@ var activeHead = 'ninja';
 
 var bodyDiv = document.getElementById('syllabody');
 var headImg = document.getElementById('trocheehead');
+var headline = document.getElementById('headline');
 
 function randomItem(array) {
   return array[Math.floor(Math.random()*array.length)];
@@ -85,6 +93,7 @@ function roll() {
   activeBg = randomItem(bgOpts);
   activeBody = randomItem(bodyOpts);
   activeHead = randomItem(headOpts);
+  headline = activeBg + ' ' + activeBody + ' ' + activeHead;
 
   document.body.style.backgroundImage = "url('"+bgs[activeBg].url+"')";
   bodyDiv.style.backgroundImage = "url('"+bodies[activeBody].url+"')";
