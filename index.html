@@ -41,28 +41,28 @@ html, body {
 <script>
 var bgs = {
   space: {
-    url: 'http://i.imgur.com/PZYmQsC.jpg'
+    url: 'https://i.imgur.com/PZYmQsC.jpg'
   }
 };
 var bodies = {
   horse: {
-    url: 'http://i.imgur.com/BaulRXE.png',
+    url: 'https://i.imgur.com/BaulRXE.png',
     neck: {x: 250, y: 80},
     width: 300, height: 300
   },
   goat: {
-    url: 'http://i.imgur.com/122nM01.png',
+    url: 'https://i.imgur.com/122nM01.png',
     neck: {x: 250, y: 95},
     width: 362, height:300
   }
 };
 var heads = {
   ninja: {
-    url: 'http://i.imgur.com/TJijbd6.png',
+    url: 'https://i.imgur.com/TJijbd6.png',
     width:69, height:100
   },
   cowboy: {
-    url: 'http://i.imgur.com/tEX0jWp.png',
+    url: 'https://i.imgur.com/tEX0jWp.png',
     width:105, height:130
   }
 };
@@ -78,7 +78,7 @@ var bodyDiv = document.getElementById('syllabody');
 var headImg = document.getElementById('trocheehead');
 
 function randomItem(array) {
-  return array[Math.floor(Math.random()*array.length)]
+  return array[Math.floor(Math.random()*array.length)];
 }
 
 function roll() {
@@ -86,8 +86,8 @@ function roll() {
   activeBody = randomItem(bodyOpts);
   activeHead = randomItem(headOpts);
 
-  document.body.style.backgroundImage = bgs[activeBg].url;
-  bodyDiv.style.backgroundImage = bodies[activeBody].url;
+  document.body.style.backgroundImage = "url('"+bgs[activeBg].url+"')";
+  bodyDiv.style.backgroundImage = "url('"+bodies[activeBody].url+"')";
   bodyDiv.style.width = bodies[activeBody].width + 'px';
   bodyDiv.style.height = bodies[activeBody].height + 'px';
   headImg.src = heads[activeHead].url;
