@@ -68,14 +68,18 @@ function roll() {
 
   document.body.style.backgroundImage = bgs[activeBg].url;
   bodyDiv.style.backgroundImage = bodies[activeBody].url;
+  bodyDiv.style.width = bodies[activeBody].width + 'px';
+  bodyDiv.style.height = bodies[activeBody].height + 'px';
   headImg.src = heads[activeHead].url;
-  headImg.style.top = bodies[activeBody].neck.y - heads[activeHead].height/2;
-  headImg.style.left = bodies[activeBody].neck.x - heads[activeHead].width/2;
+  headImg.style.top = bodies[activeBody].neck.y - heads[activeHead].height/2 + 'px';
+  headImg.style.left = bodies[activeBody].neck.x - heads[activeHead].width/2 + 'px';
 }
-document.addEventListener('mousemove',function(evt){
-  bodyDiv.style.left = evt.clientX - bodies[activeBody].width/2;
-  bodyDiv.style.top = evt.clientY - bodies[activeBody].height/2;
+document.addEventListener('mousemove', function(evt){
+  console.log('go');
+  bodyDiv.style.left = evt.clientX - bodies[activeBody].width/2 + 'px';
+  bodyDiv.style.top = evt.clientY - bodies[activeBody].height/2 + 'px';
 });
+document.addEventListener('click',roll);
 </script>
 </body>
 </html>
